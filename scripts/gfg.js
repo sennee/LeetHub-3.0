@@ -7,56 +7,52 @@
 // };
 
 /* Commit messages */
-const README_MSG = 'Create README - LeetHub';
-const SUBMIT_MSG = 'Added solution - LeetHub';
-const UPDATE_MSG = 'Updated solution - LeetHub';
-let START_MONITOR = true;
-const toKebabCase = (string) => {
-  return string
+const README_MSG = 'Create README - LeetHub'
+const SUBMIT_MSG = 'Added solution - LeetHub'
+const UPDATE_MSG = 'Updated solution - LeetHub'
+let START_MONITOR = true
+const toKebabCase = string =>
+  string
     .replace(/[^a-zA-Z0-9\. ]/g, '') // remove special chars
     .replace(/([a-z])([A-Z])/g, '$1-$2') // get all lowercase letters that are near to uppercase ones
     .replace(/[\s_]+/g, '-') // replace all spaces and low dash
-    .toLowerCase(); // convert to lower case
-};
-
+    .toLowerCase() // convert to lower case
 function findGfgLanguage() {
-  const ele = document.getElementsByClassName('divider text')[0]
-    .innerText;
-  const lang = ele.split('(')[0].trim();
+  const ele = document.getElementsByClassName('divider text')[0].innerText
+  const lang = ele.split('(')[0].trim()
   if (lang.length > 0 && languages[lang]) {
-    return languages[lang];
+    return languages[lang]
   }
-  return null;
+  return null
 }
 
 function findTitle() {
-  const ele = document.querySelector('[class^="problems_header_content__title"] > h3')
-    .innerText;
+  const ele = document.querySelector('[class^="problems_header_content__title"] > h3').innerText
   if (ele != null) {
-    return ele;
+    return ele
   }
-  return '';
+  return ''
 }
 
 function findDifficulty() {
-  const ele = document.querySelectorAll('[class^="problems_header_description"]')[0].children[0].innerText;
+  const ele = document.querySelectorAll('[class^="problems_header_description"]')[0].children[0]
+    .innerText
 
   if (ele != null) {
     if (ele.trim() == 'Basic' || ele.trim() === 'School') {
-      return 'Easy';
+      return 'Easy'
     }
-    return ele;
+    return ele
   }
-  return '';
+  return ''
 }
 
 function getProblemStatement() {
-  const ele = document.querySelector('[class^="problems_problem_content"]');
-  return `${ele.outerHTML}`;
+  const ele = document.querySelector('[class^="problems_problem_content"]')
+  return `${ele.outerHTML}`
 }
 
 function getCode() {
-
   const scriptContent = `
   var editor = ace.edit("ace-editor");
   var editorContent = editor.getValue();
@@ -64,87 +60,72 @@ function getCode() {
   para.innerText+=editorContent;
   para.setAttribute("id","codeDataLeetHub")
   document.body.appendChild(para);
-  `;
+  `
 
-  var script = document.createElement('script');
-  script.id = 'tmpScript';
+  var script = document.createElement('script')
+  script.id = 'tmpScript'
   script.appendChild(document.createTextNode(scriptContent));
-  (
-    document.body ||
-    document.head ||
-    document.documentElement
-  ).appendChild(script);
-  const text = document.getElementById('codeDataLeetHub').innerText;
+  (document.body || document.head || document.documentElement).appendChild(script)
+  const text = document.getElementById('codeDataLeetHub').innerText
 
   const nodeDeletionScript = `
   document.body.removeChild(para)
-  `;
-  var script = document.createElement('script');
-  script.id = 'tmpScript';
+  `
+  var script = document.createElement('script')
+  script.id = 'tmpScript'
   script.appendChild(document.createTextNode(nodeDeletionScript));
-  (
-    document.body ||
-    document.head ||
-    document.documentElement
-  ).appendChild(script);
+  (document.body || document.head || document.documentElement).appendChild(script)
 
-  return text || '';
+  return text || ''
 }
 
 const gfgLoader = setInterval(() => {
-  let code = null;
-  let problemStatement = null;
-  let title = null;
-  let language = null;
-  let difficulty = null;
+  let code = null
+  let problemStatement = null
+  let title = null
+  let language = null
+  let difficulty = null
 
-  if (
-    window.location.href.includes(
-      'practice.geeksforgeeks.org/problems',
-    )
-  ) {
+  if (window.location.href.includes('practice.geeksforgeeks.org/problems')) {
+    const submitBtn = document
+      .evaluate(".//button[text()='Submit']", document.body, null, XPathResult.ANY_TYPE, null)
+      .iterateNext()
 
-    const submitBtn = document.evaluate(".//button[text()='Submit']", document.body, null, XPathResult.ANY_TYPE, null).iterateNext();
-
-    submitBtn.addEventListener('click', function () {
-      START_MONITOR = true;
+    submitBtn.addEventListener('click', () => {
+      START_MONITOR = true
       const submission = setInterval(() => {
-        const output = document.querySelectorAll('[class^="problems_content"]')[0]
-          .innerText;
-        if (
-          output.includes('Problem Solved Successfully') &&
-          START_MONITOR
-        ) {
+        const output = document.querySelectorAll('[class^="problems_content"]')[0].innerText
+        if (output.includes('Problem Solved Successfully') && START_MONITOR) {
           // clear timeout
-          START_MONITOR = false;
-          clearInterval(gfgLoader);
-          clearInterval(submission);
+          START_MONITOR = false
+          clearInterval(gfgLoader)
+          clearInterval(submission)
           // get data
-          title = findTitle().trim();
-          difficulty = findDifficulty();
-          problemStatement = getProblemStatement();
-          code = getCode();
-          language = findGfgLanguage();
+          title = findTitle().trim()
+          difficulty = findDifficulty()
+          problemStatement = getProblemStatement()
+          code = getCode()
+          language = findGfgLanguage()
 
           // format data
-          const probName = `${title} - GFG`;
+          const probName = `${title} - GFG`
 
-          problemStatement = `# ${title}\n## ${difficulty}\n${problemStatement}`;
+          problemStatement = `# ${title}\n## ${difficulty}\n${problemStatement}`
 
           // if language was found
           if (language !== null) {
-            chrome.storage.local.get('stats', (s) => {
-              const { stats } = s;
-              const fileName = toKebabCase(title + language);
-              const filePath = probName + fileName;
-              let sha = null;
+            chrome.storage.local.get('stats', s => {
+              const { stats } = s
+              const fileName = toKebabCase(title + language)
+              const filePath = probName + fileName
+              let sha = null
               if (
                 stats !== undefined &&
                 stats.shas !== undefined &&
                 stats.shas[probName] !== undefined &&
                 stats.shas[probName][fileName] !== undefined
               ) {
-                sha = stats.shas[probName][fileName];
+                sha = stats.shas[probName][fileName]
               }
 
               // Only create README if not already created
@@ -158,11 +139,11 @@ const gfgLoader = setInterval(() => {
                 undefined,
                 undefined,
                 difficulty,
-              );
+              )
               // }
 
               if (code !== '') {
-                setTimeout(function () {
+                setTimeout(() => {
                   uploadGit(
                     btoa(unescape(encodeURIComponent(code))),
                     probName,
@@ -172,22 +153,21 @@ const gfgLoader = setInterval(() => {
                     undefined,
                     undefined,
                     difficulty,
-                  );
-                }, 1000);
+                  )
+                }, 1000)
               }
-            });
+            })
           }
         } else if (output.includes('Compilation Error')) {
           // clear timeout and do nothing
-          clearInterval(submission);
+          clearInterval(submission)
         } else if (
           !START_MONITOR &&
-          (output.includes('Compilation Error') ||
-            output.includes('Correct Answer'))
+          (output.includes('Compilation Error') || output.includes('Correct Answer'))
         ) {
-          clearInterval(submission);
+          clearInterval(submission)
         }
-      }, 1000);
-    });
+      }, 1000)
+    })
   }
-}, 1000);
+}, 1000)
