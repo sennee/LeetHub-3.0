@@ -10,7 +10,6 @@ SELECT  Trips.request_at AS Day
   JOIN  Users AS D
     ON  Trips.driver_id = D.users_id
         AND D.banned = 'No'
- WHERE Trips.request_at >= DATE('2013-10-01')
-        AND Trips.request_at <= DATE('2013-10-03')    
+ WHERE Trips.request_at BETWEEN '2013-10-01' AND '2013-10-03'    
  GROUP
     BY  Trips.request_at
