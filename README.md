@@ -105,3 +105,11 @@ Please help to further improve this awesome plugin! We would appreciate your sup
 
 Don't forget to star this repository for further development of new features. If you want a particular feature, simply [request](https://github.com/raphaelheinz/LeetHub-3.0/labels/feature) for it!
 
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Database
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0178-rank-scores](https://github.com/sennee/LeetHub-3.0/tree/main/0178-rank-scores/) | Medium |
+<!---LeetCode Topics End-->
