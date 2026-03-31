@@ -112,4 +112,5 @@ Don't forget to star this repository for further development of new features. If
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0178-rank-scores](https://github.com/sennee/LeetHub-3.0/tree/main/0178-rank-scores/) | Medium |
+| [0184-department-highest-salary](https://github.com/sennee/LeetHub-3.0/tree/main/0184-department-highest-salary/) | Medium |
 <!---LeetCode Topics End-->
