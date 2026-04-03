@@ -116,4 +116,5 @@ Don't forget to star this repository for further development of new features. If
 | [0262-trips-and-users](https://github.com/sennee/LeetHub-3.0/tree/main/0262-trips-and-users/) | Hard |
 | [0601-human-traffic-of-stadium](https://github.com/sennee/LeetHub-3.0/tree/main/0601-human-traffic-of-stadium/) | Hard |
 | [0608-tree-node](https://github.com/sennee/LeetHub-3.0/tree/main/0608-tree-node/) | Medium |
+| [1158-market-analysis-i](https://github.com/sennee/LeetHub-3.0/tree/main/1158-market-analysis-i/) | Medium |
 <!---LeetCode Topics End-->
