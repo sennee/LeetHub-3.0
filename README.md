@@ -115,4 +115,5 @@ Don't forget to star this repository for further development of new features. If
 | [0184-department-highest-salary](https://github.com/sennee/LeetHub-3.0/tree/main/0184-department-highest-salary/) | Medium |
 | [0262-trips-and-users](https://github.com/sennee/LeetHub-3.0/tree/main/0262-trips-and-users/) | Hard |
 | [0601-human-traffic-of-stadium](https://github.com/sennee/LeetHub-3.0/tree/main/0601-human-traffic-of-stadium/) | Hard |
+| [0608-tree-node](https://github.com/sennee/LeetHub-3.0/tree/main/0608-tree-node/) | Medium |
 <!---LeetCode Topics End-->
