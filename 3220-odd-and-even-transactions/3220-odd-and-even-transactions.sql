@@ -6,4 +6,4 @@ SELECT  transaction_date
  GROUP
     BY  transaction_date
  ORDER 
-    BY  transaction_date
+    BY  transaction_date ASC
