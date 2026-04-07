@@ -118,4 +118,5 @@ Don't forget to star this repository for further development of new features. If
 | [0608-tree-node](https://github.com/sennee/LeetHub-3.0/tree/main/0608-tree-node/) | Medium |
 | [1158-market-analysis-i](https://github.com/sennee/LeetHub-3.0/tree/main/1158-market-analysis-i/) | Medium |
 | [1393-capital-gainloss](https://github.com/sennee/LeetHub-3.0/tree/main/1393-capital-gainloss/) | Medium |
+| [3220-odd-and-even-transactions](https://github.com/sennee/LeetHub-3.0/tree/main/3220-odd-and-even-transactions/) | Medium |
 <!---LeetCode Topics End-->
