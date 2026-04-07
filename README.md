@@ -120,4 +120,5 @@ Don't forget to star this repository for further development of new features. If
 | [1393-capital-gainloss](https://github.com/sennee/LeetHub-3.0/tree/main/1393-capital-gainloss/) | Medium |
 | [3220-odd-and-even-transactions](https://github.com/sennee/LeetHub-3.0/tree/main/3220-odd-and-even-transactions/) | Medium |
 | [3421-find-students-who-improved](https://github.com/sennee/LeetHub-3.0/tree/main/3421-find-students-who-improved/) | Medium |
+| [3451-find-invalid-ip-addresses](https://github.com/sennee/LeetHub-3.0/tree/main/3451-find-invalid-ip-addresses/) | Hard |
 <!---LeetCode Topics End-->
